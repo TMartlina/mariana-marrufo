@@ -82,6 +82,7 @@
       <div class="flex flex-wrap gap-2">
         <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">SOC Operations</span>
         <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Digital Forensics (DFIR)</span>
+        <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Wireshark & Traffic Analysis</span>
         <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Network Security</span>
         <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Threat Management</span>
         <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Cisco Packet Tracer</span>
@@ -93,7 +94,25 @@
     <section class="space-y-4">
       <h2 class="text-xl font-bold text-slate-200 tracking-tight" id="txt-projects">Proyectos y Laboratorios</h2>
       
-      <!-- Proyecto DNS -->
+      <!-- Proyecto 2: Wireshark -->
+      <article class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 shadow-lg hover:border-slate-500 transition-colors space-y-3">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <h3 class="text-lg font-semibold text-white" id="txt-wire-title">Análisis de Tráfico con Wireshark: Exposición en Texto Plano</h3>
+          <span class="text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full" id="txt-wire-cat">Blue Team / Forense</span>
+        </div>
+        
+        <p class="text-slate-300 text-sm leading-relaxed" id="txt-wire-desc">
+          Inspección y filtrado de paquetes de red, reconstrucción de flujos TCP y evaluación de riesgos por exposición de datos sensibles en protocolos no cifrados (HTTP).
+        </p>
+
+        <div class="flex items-center justify-between pt-2">
+          <a href="https://github.com/TMartlina/wireshark-http-traffic-analysis" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
+            <span id="txt-wire-link">Ver proyecto en GitHub</span> &rarr;
+          </a>
+        </div>
+      </article>
+
+      <!-- Proyecto 1: DNS Cisco Packet Tracer -->
       <article class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 shadow-lg hover:border-slate-500 transition-colors space-y-3">
         <div class="flex items-center justify-between flex-wrap gap-2">
           <h3 class="text-lg font-semibold text-white" id="txt-dns-title">Laboratorio DNS en Cisco Packet Tracer</h3>
@@ -126,6 +145,10 @@
         aboutP2: "Mi objetivo es aplicar metodologías estructuradas y automatización de flujos de trabajo para mitigar riesgos digitales y fortalecer las capacidades defensivas de las organizaciones.",
         skills: "Habilidades Principales",
         projects: "Proyectos y Laboratorios",
+        wireTitle: "Análisis de Tráfico con Wireshark: Exposición en Texto Plano",
+        wireCat: "Blue Team / Forense",
+        wireDesc: "Inspección y filtrado de paquetes de red, reconstrucción de flujos TCP y evaluación de riesgos por exposición de datos sensibles en protocolos no cifrados (HTTP).",
+        wireLink: "Ver proyecto en GitHub",
         dnsTitle: "Laboratorio DNS en Cisco Packet Tracer",
         dnsCat: "Redes / Infraestructura",
         dnsDesc: "Diseño y validación de infraestructura de red local para la simulación de servicios de resolución de nombres (DNS) y tráfico HTTP cliente-servidor.",
@@ -140,6 +163,10 @@
         aboutP2: "My goal is to leverage structured methodologies and workflow automation to mitigate digital threats and strengthen organizational defense capabilities.",
         skills: "Focus & Core Skills",
         projects: "Projects & Labs",
+        wireTitle: "Wireshark Traffic Analysis: Plaintext Data Exposure",
+        wireCat: "Blue Team / Forensics",
+        wireDesc: "Network packet inspection, display filtering, TCP stream reconstruction, and risk assessment of unencrypted plaintext sensitive data transmission (HTTP).",
+        wireLink: "View project on GitHub",
         dnsTitle: "DNS Infrastructure & Protocol Analysis Lab",
         dnsCat: "Networking / Infrastructure",
         dnsDesc: "Design and validation of a local network environment in Cisco Packet Tracer to simulate DNS name resolution, record mapping, and client-server traffic flow.",
@@ -156,6 +183,10 @@
       document.getElementById('txt-about-p2').innerText = data[lang].aboutP2;
       document.getElementById('txt-skills').innerText = data[lang].skills;
       document.getElementById('txt-projects').innerText = data[lang].projects;
+      document.getElementById('txt-wire-title').innerText = data[lang].wireTitle;
+      document.getElementById('txt-wire-cat').innerText = data[lang].wireCat;
+      document.getElementById('txt-wire-desc').innerText = data[lang].wireDesc;
+      document.getElementById('txt-wire-link').innerText = data[lang].wireLink;
       document.getElementById('txt-dns-title').innerText = data[lang].dnsTitle;
       document.getElementById('txt-dns-cat').innerText = data[lang].dnsCat;
       document.getElementById('txt-dns-desc').innerText = data[lang].dnsDesc;
