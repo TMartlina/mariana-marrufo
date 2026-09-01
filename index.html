@@ -4,43 +4,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mariana Marrufo | Cybersecurity Portfolio</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans flex flex-col items-center py-12 px-4">
 
   <div class="max-w-3xl w-full space-y-8">
     
-    <!-- Encabezado / Perfil -->
+    <!-- Selector de Idioma (Top Bar) -->
+    <div class="flex justify-end">
+      <div class="inline-flex bg-slate-800/80 p-1 rounded-xl border border-slate-700 text-xs font-semibold">
+        <button id="btn-es" onclick="setLanguage('es')" class="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition-all">
+          ES
+        </button>
+        <button id="btn-en" onclick="setLanguage('en')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all">
+          EN
+        </button>
+      </div>
+    </div>
+
+    <!-- Header / Perfil -->
     <header class="bg-slate-800/60 p-6 sm:p-8 rounded-2xl border border-slate-700 shadow-xl space-y-4">
-      <div class="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono rounded-full">
+      <div class="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono rounded-full" data-i18n="badge">
         ● Portfolio Activo
       </div>
+      
       <h1 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
         Mariana Marrufo
       </h1>
-      <p class="text-slate-300 text-base leading-relaxed">
+      
+      <p class="text-slate-300 text-base leading-relaxed" data-i18n="tagline">
         Portfolio de Ciberseguridad · SOC, DFIR y Gestión de Amenazas.
       </p>
+
+      <!-- Enlaces de Contacto -->
+      <div class="pt-2 flex flex-wrap gap-4 text-sm font-medium">
+        <a href="https://github.com/TMartlina" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-400 transition-colors">
+          GitHub &rarr;
+        </a>
+        <a href="https://www.linkedin.com/in/mariana-marrufo-estrada" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-400 transition-colors">
+          LinkedIn &rarr;
+        </a>
+      </div>
     </header>
 
-    <!-- Sección de Proyectos -->
+    <!-- Skills Section -->
+    <section class="space-y-3">
+      <h2 class="text-xl font-bold text-slate-200 tracking-tight" data-i18n="skillsTitle">Habilidades Principales</h2>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">SOC Operations</span>
+        <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Digital Forensics (DFIR)</span>
+        <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Network Security</span>
+        <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Threat Management</span>
+        <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Cisco Packet Tracer</span>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
     <section class="space-y-4">
-      <h2 class="text-xl font-bold text-slate-200 tracking-tight">Proyectos y Laboratorios</h2>
+      <h2 class="text-xl font-bold text-slate-200 tracking-tight" data-i18n="projectsTitle">Proyectos y Laboratorios</h2>
       
-      <!-- Tarjeta del Proyecto DNS -->
+      <!-- Proyecto DNS -->
       <article class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 shadow-lg hover:border-slate-500 transition-colors space-y-3">
         <div class="flex items-center justify-between flex-wrap gap-2">
-          <h3 class="text-lg font-semibold text-white">Laboratorio DNS en Cisco Packet Tracer</h3>
-          <span class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2.5 py-0.5 rounded-full">Redes / Infraestructura</span>
+          <h3 class="text-lg font-semibold text-white" data-i18n="dnsTitle">Laboratorio DNS en Cisco Packet Tracer</h3>
+          <span class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2.5 py-0.5 rounded-full" data-i18n="dnsCategory">Redes / Infraestructura</span>
         </div>
         
-        <p class="text-slate-300 text-sm leading-relaxed">
+        <p class="text-slate-300 text-sm leading-relaxed" data-i18n="dnsDesc">
           Diseño y validación de infraestructura de red local para la simulación de servicios de resolución de nombres (DNS) y tráfico HTTP cliente-servidor.
         </p>
 
         <div class="flex items-center justify-between pt-2">
           <a href="https://github.com/TMartlina/cisco-packet-tracer-dns-lab" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
-            Ver proyecto en GitHub &rarr;
+            <span data-i18n="viewProject">Ver proyecto en GitHub</span> &rarr;
           </a>
         </div>
       </article>
@@ -48,58 +85,66 @@
 
   </div>
 
-</body>
-</html>
+  <!-- Script para cambio dinámico de idioma -->
+  <script>
+    const content = {
+      es: {
+        badge: "● Portfolio Activo",
+        tagline: "Portfolio de Ciberseguridad · SOC, DFIR y Gestión de Amenazas.",
+        skillsTitle: "Habilidades Principales",
+        projectsTitle: "Proyectos y Laboratorios",
+        dnsTitle: "Laboratorio DNS en Cisco Packet Tracer",
+        dnsCategory: "Redes / Infraestructura",
+        dnsDesc: "Diseño y validación de infraestructura de red local para la simulación de servicios de resolución de nombres (DNS) y tráfico HTTP cliente-servidor.",
+        viewProject: "Ver proyecto en GitHub"
+      },
+      en: {
+        badge: "● Portfolio Active",
+        tagline: "Cybersecurity Portfolio · SOC, DFIR & Threat Management.",
+        skillsTitle: "Focus & Core Skills",
+        projectsTitle: "Projects & Labs",
+        dnsTitle: "DNS Infrastructure & Protocol Analysis Lab",
+        dnsCategory: "Networking / Infrastructure",
+        dnsDesc: "Design and validation of a local network environment in Cisco Packet Tracer to simulate DNS name resolution, record mapping, and client-server traffic flow.",
+        viewProject: "View project on GitHub"
+      }
+    };
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mariana Marrufo | Cybersecurity Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-slate-900 text-slate-100 min-h-screen font-sans flex flex-col items-center py-12 px-4">
+    function setLanguage(lang) {
+      localStorage.setItem('portfolio_lang', lang);
+      document.documentElement.lang = lang;
 
-  <div class="max-w-3xl w-full space-y-8">
-    
-    <!-- Header / Profile -->
-    <header class="bg-slate-800/60 p-6 sm:p-8 rounded-2xl border border-slate-700 shadow-xl space-y-4">
-      <div class="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono rounded-full">
-        ● Portfolio Active
-      </div>
-      <h1 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-        Mariana Marrufo
-      </h1>
-      <p class="text-slate-300 text-base leading-relaxed">
-        Cybersecurity Portfolio · SOC, DFIR & Threat Management.
-      </p>
-    </header>
+      // Actualizar textos
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (content[lang][key]) {
+          el.textContent = content[lang][key];
+        }
+      });
 
-    <!-- Projects Section -->
-    <section class="space-y-4">
-      <h2 class="text-xl font-bold text-slate-200 tracking-tight">Projects & Labs</h2>
-      
-      <!-- DNS Project Card -->
-      <article class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 shadow-lg hover:border-slate-500 transition-colors space-y-3">
-        <div class="flex items-center justify-between flex-wrap gap-2">
-          <h3 class="text-lg font-semibold text-white">DNS Infrastructure & Protocol Analysis Lab</h3>
-          <span class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2.5 py-0.5 rounded-full">Networking / Infrastructure</span>
-        </div>
-        
-        <p class="text-slate-300 text-sm leading-relaxed">
-          Design and validation of a local network environment in Cisco Packet Tracer to simulate DNS name resolution, record mapping, and client-server traffic flow.
-        </p>
+      // Estilos de los botones
+      const btnEs = document.getElementById('btn-es');
+      const btnEn = document.getElementById('btn-en');
+      const activeClasses = ['bg-emerald-500/20', 'text-emerald-400', 'border', 'border-emerald-500/30'];
+      const inactiveClasses = ['text-slate-400'];
 
-        <div class="flex items-center justify-between pt-2">
-          <a href="https://github.com/TMartlina/cisco-packet-tracer-dns-lab" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
-            View project on GitHub &rarr;
-          </a>
-        </div>
-      </article>
-    </section>
+      if (lang === 'es') {
+        btnEs.classList.add(...activeClasses);
+        btnEs.classList.remove(...inactiveClasses);
+        btnEn.classList.remove(...activeClasses);
+        btnEn.classList.add(...inactiveClasses);
+      } else {
+        btnEn.classList.add(...activeClasses);
+        btnEn.classList.remove(...inactiveClasses);
+        btnEs.classList.remove(...activeClasses);
+        btnEs.classList.add(...inactiveClasses);
+      }
+    }
 
-  </div>
+    // Cargar idioma guardado o por defecto (es)
+    const savedLang = localStorage.getItem('portfolio_lang') || 'es';
+    setLanguage(savedLang);
+  </script>
 
 </body>
 </html>
