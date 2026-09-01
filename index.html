@@ -11,7 +11,7 @@
 
   <div class="max-w-3xl w-full space-y-8">
     
-    <!-- Selector de Idioma (Botones arriba a la derecha) -->
+    <!-- Selector de Idioma (Top Bar) -->
     <div class="flex justify-end items-center gap-2">
       <span class="text-xs text-slate-400 font-mono mr-1">Lang:</span>
       <div class="inline-flex bg-slate-800 p-1 rounded-xl border border-slate-700 shadow-md">
@@ -38,16 +38,33 @@
         Portfolio de Ciberseguridad · SOC, DFIR y Gestión de Amenazas.
       </p>
 
-      <!-- Enlaces de Contacto -->
-      <div class="pt-2 flex flex-wrap gap-4 text-sm font-medium">
-        <a href="https://github.com/TMartlina" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-400 transition-colors">
+      <!-- Enlaces de Contacto y Descarga de CV -->
+      <div class="pt-2 flex flex-wrap items-center gap-4 text-sm font-medium">
+        <a href="https://github.com/TMartlina" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1">
           GitHub &rarr;
         </a>
-        <a href="https://www.linkedin.com/in/mariana-marrufo-estrada" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-400 transition-colors">
+        <a href="https://www.linkedin.com/in/mariana-marrufo-estrada" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1">
           LinkedIn &rarr;
+        </a>
+        <a href="cv.pdf" download="Mariana_Marrufo_CV.pdf" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-semibold rounded-lg transition-all">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          <span id="txt-cv-btn">Descargar CV</span>
         </a>
       </div>
     </header>
+
+    <!-- Sección Quién Soy / About Me -->
+    <section class="bg-slate-800/40 p-6 sm:p-7 rounded-2xl border border-slate-700/80 shadow-lg space-y-3">
+      <h2 class="text-xl font-bold text-slate-200 tracking-tight" id="txt-about-title">Quién Soy</h2>
+      <p class="text-slate-300 text-sm leading-relaxed" id="txt-about-p1">
+        Profesional orientada a la ciberseguridad defensiva, análisis de datos y optimización de procesos. Cuento con formación multidisciplinar que combina la gestión analítica y la resiliencia operativa, enfocándome en operaciones de seguridad (SOC), respuesta a incidentes (DFIR) e infraestructura de redes.
+      </p>
+      <p class="text-slate-300 text-sm leading-relaxed" id="txt-about-p2">
+        Mi objetivo es aplicar metodologías estructuradas y automatización de flujos de trabajo para mitigar riesgos digitales y fortalecer las capacidades defensivas de las organizaciones.
+      </p>
+    </section>
 
     <!-- Skills Section -->
     <section class="space-y-3">
@@ -58,6 +75,7 @@
         <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Network Security</span>
         <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Threat Management</span>
         <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Cisco Packet Tracer</span>
+        <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Data Analytics</span>
       </div>
     </section>
 
@@ -92,6 +110,10 @@
       es: {
         badge: "● Portfolio Activo",
         tagline: "Portfolio de Ciberseguridad · SOC, DFIR y Gestión de Amenazas.",
+        cvBtn: "Descargar CV",
+        aboutTitle: "Quién Soy",
+        aboutP1: "Profesional orientada a la ciberseguridad defensiva, análisis de datos y optimización de procesos. Cuento con una visión integral que combina la analítica y la resiliencia operativa, enfocándome en operaciones de seguridad (SOC), respuesta a incidentes (DFIR) e infraestructura de redes.",
+        aboutP2: "Mi objetivo es aplicar metodologías estructuradas y automatización de flujos de trabajo para mitigar riesgos digitales y fortalecer las capacidades defensivas de las organizaciones.",
         skills: "Habilidades Principales",
         projects: "Proyectos y Laboratorios",
         dnsTitle: "Laboratorio DNS en Cisco Packet Tracer",
@@ -102,6 +124,10 @@
       en: {
         badge: "● Portfolio Active",
         tagline: "Cybersecurity Portfolio · SOC, DFIR & Threat Management.",
+        cvBtn: "Download Resume",
+        aboutTitle: "About Me",
+        aboutP1: "Cybersecurity professional focused on defensive security, data analytics, and process optimization. I bring an analytical and resilient mindset, specializing in Security Operations (SOC), Incident Response (DFIR), and network infrastructure.",
+        aboutP2: "My goal is to leverage structured methodologies and workflow automation to mitigate digital threats and strengthen organizational defense capabilities.",
         skills: "Focus & Core Skills",
         projects: "Projects & Labs",
         dnsTitle: "DNS Infrastructure & Protocol Analysis Lab",
@@ -114,6 +140,10 @@
     function changeLang(lang) {
       document.getElementById('txt-badge').innerText = data[lang].badge;
       document.getElementById('txt-tagline').innerText = data[lang].tagline;
+      document.getElementById('txt-cv-btn').innerText = data[lang].cvBtn;
+      document.getElementById('txt-about-title').innerText = data[lang].aboutTitle;
+      document.getElementById('txt-about-p1').innerText = data[lang].aboutP1;
+      document.getElementById('txt-about-p2').innerText = data[lang].aboutP2;
       document.getElementById('txt-skills').innerText = data[lang].skills;
       document.getElementById('txt-projects').innerText = data[lang].projects;
       document.getElementById('txt-dns-title').innerText = data[lang].dnsTitle;
