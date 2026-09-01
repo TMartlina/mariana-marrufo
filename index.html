@@ -11,13 +11,14 @@
 
   <div class="max-w-3xl w-full space-y-8">
     
-    <!-- Selector de Idioma (Top Bar) -->
-    <div class="flex justify-end">
-      <div class="inline-flex bg-slate-800/80 p-1 rounded-xl border border-slate-700 text-xs font-semibold">
-        <button id="btn-es" onclick="setLanguage('es')" class="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition-all">
+    <!-- Selector de Idioma (Botones arriba a la derecha) -->
+    <div class="flex justify-end items-center gap-2">
+      <span class="text-xs text-slate-400 font-mono mr-1">Lang:</span>
+      <div class="inline-flex bg-slate-800 p-1 rounded-xl border border-slate-700 shadow-md">
+        <button id="btn-es" onclick="changeLang('es')" class="px-3 py-1 text-xs font-bold rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition-all cursor-pointer">
           ES
         </button>
-        <button id="btn-en" onclick="setLanguage('en')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all">
+        <button id="btn-en" onclick="changeLang('en')" class="px-3 py-1 text-xs font-bold rounded-lg text-slate-400 hover:text-slate-200 transition-all cursor-pointer">
           EN
         </button>
       </div>
@@ -25,7 +26,7 @@
 
     <!-- Header / Perfil -->
     <header class="bg-slate-800/60 p-6 sm:p-8 rounded-2xl border border-slate-700 shadow-xl space-y-4">
-      <div class="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono rounded-full" data-i18n="badge">
+      <div class="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono rounded-full" id="txt-badge">
         ● Portfolio Activo
       </div>
       
@@ -33,7 +34,7 @@
         Mariana Marrufo
       </h1>
       
-      <p class="text-slate-300 text-base leading-relaxed" data-i18n="tagline">
+      <p class="text-slate-300 text-base leading-relaxed" id="txt-tagline">
         Portfolio de Ciberseguridad · SOC, DFIR y Gestión de Amenazas.
       </p>
 
@@ -50,7 +51,7 @@
 
     <!-- Skills Section -->
     <section class="space-y-3">
-      <h2 class="text-xl font-bold text-slate-200 tracking-tight" data-i18n="skillsTitle">Habilidades Principales</h2>
+      <h2 class="text-xl font-bold text-slate-200 tracking-tight" id="txt-skills">Habilidades Principales</h2>
       <div class="flex flex-wrap gap-2">
         <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">SOC Operations</span>
         <span class="px-3 py-1 bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-lg font-mono">Digital Forensics (DFIR)</span>
@@ -62,22 +63,22 @@
 
     <!-- Projects Section -->
     <section class="space-y-4">
-      <h2 class="text-xl font-bold text-slate-200 tracking-tight" data-i18n="projectsTitle">Proyectos y Laboratorios</h2>
+      <h2 class="text-xl font-bold text-slate-200 tracking-tight" id="txt-projects">Proyectos y Laboratorios</h2>
       
       <!-- Proyecto DNS -->
       <article class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 shadow-lg hover:border-slate-500 transition-colors space-y-3">
         <div class="flex items-center justify-between flex-wrap gap-2">
-          <h3 class="text-lg font-semibold text-white" data-i18n="dnsTitle">Laboratorio DNS en Cisco Packet Tracer</h3>
-          <span class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2.5 py-0.5 rounded-full" data-i18n="dnsCategory">Redes / Infraestructura</span>
+          <h3 class="text-lg font-semibold text-white" id="txt-dns-title">Laboratorio DNS en Cisco Packet Tracer</h3>
+          <span class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2.5 py-0.5 rounded-full" id="txt-dns-cat">Redes / Infraestructura</span>
         </div>
         
-        <p class="text-slate-300 text-sm leading-relaxed" data-i18n="dnsDesc">
+        <p class="text-slate-300 text-sm leading-relaxed" id="txt-dns-desc">
           Diseño y validación de infraestructura de red local para la simulación de servicios de resolución de nombres (DNS) y tráfico HTTP cliente-servidor.
         </p>
 
         <div class="flex items-center justify-between pt-2">
           <a href="https://github.com/TMartlina/cisco-packet-tracer-dns-lab" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
-            <span data-i18n="viewProject">Ver proyecto en GitHub</span> &rarr;
+            <span id="txt-dns-link">Ver proyecto en GitHub</span> &rarr;
           </a>
         </div>
       </article>
@@ -85,65 +86,52 @@
 
   </div>
 
-  <!-- Script para cambio dinámico de idioma -->
+  <!-- Lógica de cambio de idioma -->
   <script>
-    const content = {
+    const data = {
       es: {
         badge: "● Portfolio Activo",
         tagline: "Portfolio de Ciberseguridad · SOC, DFIR y Gestión de Amenazas.",
-        skillsTitle: "Habilidades Principales",
-        projectsTitle: "Proyectos y Laboratorios",
+        skills: "Habilidades Principales",
+        projects: "Proyectos y Laboratorios",
         dnsTitle: "Laboratorio DNS en Cisco Packet Tracer",
-        dnsCategory: "Redes / Infraestructura",
+        dnsCat: "Redes / Infraestructura",
         dnsDesc: "Diseño y validación de infraestructura de red local para la simulación de servicios de resolución de nombres (DNS) y tráfico HTTP cliente-servidor.",
-        viewProject: "Ver proyecto en GitHub"
+        dnsLink: "Ver proyecto en GitHub"
       },
       en: {
         badge: "● Portfolio Active",
         tagline: "Cybersecurity Portfolio · SOC, DFIR & Threat Management.",
-        skillsTitle: "Focus & Core Skills",
-        projectsTitle: "Projects & Labs",
+        skills: "Focus & Core Skills",
+        projects: "Projects & Labs",
         dnsTitle: "DNS Infrastructure & Protocol Analysis Lab",
-        dnsCategory: "Networking / Infrastructure",
+        dnsCat: "Networking / Infrastructure",
         dnsDesc: "Design and validation of a local network environment in Cisco Packet Tracer to simulate DNS name resolution, record mapping, and client-server traffic flow.",
-        viewProject: "View project on GitHub"
+        dnsLink: "View project on GitHub"
       }
     };
 
-    function setLanguage(lang) {
-      localStorage.setItem('portfolio_lang', lang);
-      document.documentElement.lang = lang;
+    function changeLang(lang) {
+      document.getElementById('txt-badge').innerText = data[lang].badge;
+      document.getElementById('txt-tagline').innerText = data[lang].tagline;
+      document.getElementById('txt-skills').innerText = data[lang].skills;
+      document.getElementById('txt-projects').innerText = data[lang].projects;
+      document.getElementById('txt-dns-title').innerText = data[lang].dnsTitle;
+      document.getElementById('txt-dns-cat').innerText = data[lang].dnsCat;
+      document.getElementById('txt-dns-desc').innerText = data[lang].dnsDesc;
+      document.getElementById('txt-dns-link').innerText = data[lang].dnsLink;
 
-      // Actualizar textos
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (content[lang][key]) {
-          el.textContent = content[lang][key];
-        }
-      });
-
-      // Estilos de los botones
       const btnEs = document.getElementById('btn-es');
       const btnEn = document.getElementById('btn-en');
-      const activeClasses = ['bg-emerald-500/20', 'text-emerald-400', 'border', 'border-emerald-500/30'];
-      const inactiveClasses = ['text-slate-400'];
 
       if (lang === 'es') {
-        btnEs.classList.add(...activeClasses);
-        btnEs.classList.remove(...inactiveClasses);
-        btnEn.classList.remove(...activeClasses);
-        btnEn.classList.add(...inactiveClasses);
+        btnEs.className = "px-3 py-1 text-xs font-bold rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition-all cursor-pointer";
+        btnEn.className = "px-3 py-1 text-xs font-bold rounded-lg text-slate-400 hover:text-slate-200 transition-all cursor-pointer";
       } else {
-        btnEn.classList.add(...activeClasses);
-        btnEn.classList.remove(...inactiveClasses);
-        btnEs.classList.remove(...activeClasses);
-        btnEs.classList.add(...inactiveClasses);
+        btnEn.className = "px-3 py-1 text-xs font-bold rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition-all cursor-pointer";
+        btnEs.className = "px-3 py-1 text-xs font-bold rounded-lg text-slate-400 hover:text-slate-200 transition-all cursor-pointer";
       }
     }
-
-    // Cargar idioma guardado o por defecto (es)
-    const savedLang = localStorage.getItem('portfolio_lang') || 'es';
-    setLanguage(savedLang);
   </script>
 
 </body>
