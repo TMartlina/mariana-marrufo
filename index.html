@@ -94,7 +94,21 @@
     <!-- Projects Section -->
     <section class="space-y-4">
       <h2 class="text-xl font-bold text-slate-200 tracking-tight" id="txt-projects">Proyectos y Laboratorios</h2>
-      
+      <!-- Proyecto 4: Gov Risk Analyzer -->
+<article class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 shadow-lg hover:border-slate-500 transition-colors space-y-3">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<h3 class="text-lg font-semibold text-white" id="txt-gov-title">Gov Risk Analyzer: Evaluación de Gobernanza con NIST CSF 2.0</h3>
+<span class="text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/30 px-2.5 py-0.5 rounded-full" id="txt-gov-cat">GRC / Gobernanza</span>
+</div>
+<p class="text-slate-300 text-sm leading-relaxed" id="txt-gov-desc">
+Herramienta en Python que puntúa la madurez de gobernanza de ciberseguridad frente a NIST CSF 2.0, distinguiendo lo documentado, lo implementado y lo evidenciado, y prioriza las brechas por riesgo. Validada con tres pymes ficticias y tests automáticos.
+</p>
+<div class="flex items-center justify-between pt-2">
+<a href="https://github.com/TMartlina/gov-risk-analyzer" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
+<span id="txt-gov-link">Ver proyecto en GitHub</span> &rarr;
+</a>
+</div>
+</article>
       <!-- Proyecto 3: M-Labs DFIR Framework -->
       <article class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 shadow-lg hover:border-slate-500 transition-colors space-y-3">
         <div class="flex items-center justify-between flex-wrap gap-2">
@@ -172,6 +186,12 @@
         wireCat: "Blue Team / Forense",
         wireDesc: "Inspección y filtrado de paquetes de red, reconstrucción de flujos TCP y evaluación de riesgos por exposición de datos sensibles en protocolos no cifrados (HTTP).",
         wireLink: "Ver proyecto en GitHub",
+        dnsLink: "Ver proyecto en GitHub",
+
+govTitle: "Gov Risk Analyzer: Evaluación de Gobernanza con NIST CSF 2.0",
+govCat: "GRC / Gobernanza",
+govDesc: "Herramienta en Python que puntúa la madurez de gobernanza de ciberseguridad frente a NIST CSF 2.0, distinguiendo lo documentado, lo implementado y lo evidenciado, y prioriza las brechas por riesgo. Validada con tres pymes ficticias y tests automáticos.",
+govLink: "Ver proyecto en GitHub"
         dnsTitle: "Laboratorio DNS en Cisco Packet Tracer",
         dnsCat: "Redes / Infraestructura",
         dnsDesc: "Diseño y validación de infraestructura de red local para la simulación de servicios de resolución de nombres (DNS) y tráfico HTTP cliente-servidor.",
@@ -190,6 +210,12 @@
         dfirCat: "DFIR / Cloud Architecture",
         dfirDesc: "Design and deployment of an automated Digital Forensics & Incident Response model (CaaS) using the OODA loop. Surgical acquisition of volatile artifacts across hybrid AWS/Linux environments while maintaining business continuity.",
         dfirLink: "View project on GitHub",
+        dnsLink: "View project on GitHub",
+
+govTitle: "Gov Risk Analyzer: Governance Assessment with NIST CSF 2.0",
+govCat: "GRC / Governance",
+govDesc: "Python tool that scores cybersecurity governance maturity against NIST CSF 2.0, separating what is documented, implemented and evidenced, and ranks gaps by risk. Validated with three fictional SMEs and automated tests.",
+govLink: "View project on GitHub"
         wireTitle: "Wireshark Traffic Analysis: Plaintext Data Exposure",
         wireCat: "Blue Team / Forensics",
         wireDesc: "Network packet inspection, display filtering, TCP stream reconstruction, and risk assessment of unencrypted plaintext sensitive data transmission (HTTP).",
@@ -222,6 +248,10 @@
       document.getElementById('txt-dns-cat').innerText = data[lang].dnsCat;
       document.getElementById('txt-dns-desc').innerText = data[lang].dnsDesc;
       document.getElementById('txt-dns-link').innerText = data[lang].dnsLink;
+      document.getElementById('txt-gov-title').innerText = data[lang].govTitle;
+document.getElementById('txt-gov-cat').innerText = data[lang].govCat;
+document.getElementById('txt-gov-desc').innerText = data[lang].govDesc;
+document.getElementById('txt-gov-link').innerText = data[lang].govLink;
 
       const btnEs = document.getElementById('btn-es');
       const btnEn = document.getElementById('btn-en');
